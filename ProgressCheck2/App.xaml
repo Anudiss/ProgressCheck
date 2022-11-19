@@ -2,8 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ProgressCheck2"
+             xmlns:converters="clr-namespace:ProgressCheck2.Converters"
              StartupUri="/Windows/MainWindow/MainWindow.xaml">
     <Application.Resources>
-         
+        <converters:BoolToVisibilityConventer x:Key="BoolToVisibilityConventer"/>
     </Application.Resources>
 </Application>

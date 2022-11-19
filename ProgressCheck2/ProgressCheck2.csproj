@@ -68,6 +68,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\BoolToVisibilityConventer.cs" />
     <Compile Include="DatabaseConnection\Database.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +84,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Database.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseConnection\DatabaseContext.cs" />
     <Compile Include="DatabaseConnection\Orderr.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
@@ -95,8 +97,15 @@
     <Compile Include="DatabaseConnection\ToyOrder.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="PartialClasses\Toy.cs" />
+    <Compile Include="Windows\EditToyWindowResources\EditToyWindow.xaml.cs">
+      <DependentUpon>EditToyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainWindow\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow\ToysResources\ToyCard.xaml.cs">
+      <DependentUpon>ToyCard.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -134,7 +143,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Windows\EditToyWindowResources\EditToyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\MainWindow\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow\ToysResources\ToyCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -154,5 +171,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

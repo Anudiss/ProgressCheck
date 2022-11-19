@@ -4,10 +4,68 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgressCheck2.Windows.MainWindow"
+        xmlns:database="clr-namespace:ProgressCheck2.DatabaseConnection"
+        xmlns:toycard="clr-namespace:ProgressCheck2.Windows.MainWindow.ToysResources"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Name="MainWindowRoot">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid HorizontalAlignment="Stretch"
+              Margin="20 5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
+                        Grid.Column="0">
+                <Label Content="Поиск: "/>
+                <TextBox x:Name="SearchComponent" Width="200" TextChanged="OnSearchBoxChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"
+                        Grid.Column="1">
+                <Label Content="Сортировка"/>
+                <ComboBox Name="SortComponent" SelectionChanged="OnSortingChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"
+                        Grid.Column="2">
+                <Label Content="Режим администратора: "/>
+                <TextBox x:Name="AdminTextBox" Width="100"/>
+            </StackPanel>
+        </Grid>
+
+        <ListBox x:Name="ToysContainer" ItemsSource="{Binding ElementName=MainWindowRoot, Path=Toys}"
+                 Margin="20 10" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type database:Toy}">
+                    <toycard:ToyCard Toy="{Binding Path=.}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Background" Value="CadetBlue"/>
+
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightBlue"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Blue"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IsAvailable}" Value="False">
+                            <Setter Property="Background" Value="Gray"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
     </Grid>
 </Window>

@@ -1,0 +1,26 @@
+﻿<Window x:Class="ProgressCheck2.Windows.EditToyWindowResources.EditToyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgressCheck2.Windows.EditToyWindowResources"
+        mc:Ignorable="d"
+        Title="EditToyWindow"
+        SizeToContent="WidthAndHeight"
+        MinWidth="200"
+        Name="EditToyWindowRoot">
+    <StackPanel Orientation="Vertical" Margin="20">
+        <StackPanel Orientation="Vertical">
+            <Label Content="ID"/>
+            <TextBox Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Id}"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Название"/>
+            <TextBox Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Name}"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Название"/>
+            <TextBox Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Name}"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

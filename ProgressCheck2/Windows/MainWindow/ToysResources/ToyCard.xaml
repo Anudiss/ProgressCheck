@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="ProgressCheck2.Windows.MainWindow.ToysResources.ToyCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProgressCheck2.Windows.MainWindow.ToysResources"
+             mc:Ignorable="d"
+             Name="ToyCardRoot"
+             FontSize="20">
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="{Binding ElementName=ToyCardRoot, Path=Toy.Name}" FontWeight="SemiBold"/>
+        <TextBlock Text="{Binding ElementName=ToyCardRoot, Path=Toy.Size, StringFormat='{}Размер: {0}'}"/>
+        <TextBlock Text="{Binding ElementName=ToyCardRoot, Path=Toy.Weight, StringFormat='{}Вес: {0} г'}"/>
+        <TextBlock Text="{Binding ElementName=ToyCardRoot, Path=Toy.Cost, StringFormat='{}Цена: {0} рублей'}"/>
+        <TextBlock Text="{Binding ElementName=ToyCardRoot, Path=Toy.Description, StringFormat='{}Описание: {0}'}" TextWrapping="Wrap"/>
+    </StackPanel>
+</UserControl>
