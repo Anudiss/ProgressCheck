@@ -24,5 +24,11 @@ namespace ProgressCheck2.Windows.EditToyWindowResources
         {
             InitializeComponent();
         }
+
+        private void OnSave(object sender, RoutedEventArgs e)
+        {
+            DatabaseContext.Entities.SaveChanges();
+            Close();
+        }
     }
 }

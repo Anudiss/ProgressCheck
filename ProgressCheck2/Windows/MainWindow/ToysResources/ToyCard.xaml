@@ -13,5 +13,7 @@
         <TextBlock Text="{Binding ElementName=ToyCardRoot, Path=Toy.Weight, StringFormat='{}Вес: {0} г'}"/>
         <TextBlock Text="{Binding ElementName=ToyCardRoot, Path=Toy.Cost, StringFormat='{}Цена: {0} рублей'}"/>
         <TextBlock Text="{Binding ElementName=ToyCardRoot, Path=Toy.Description, StringFormat='{}Описание: {0}'}" TextWrapping="Wrap"/>
+        <Button x:Name="EditButton" Content="Редактировать" Click="EditButton_Click" 
+                Width="200" HorizontalAlignment="Left"/>
     </StackPanel>
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using ProgressCheck2.DatabaseConnection;
+using ProgressCheck2.Windows.EditToyWindowResources;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -76,6 +77,19 @@ namespace ProgressCheck2.Windows.MainWindow
                 return toy.Name.Trim().ToLower().StartsWith(textToSearch) ||
                        toy.Description.Trim().ToLower().StartsWith(textToSearch);
             };
+        }
+
+        public void OnEdit(Toy toy)
+        {
+            new EditToyWindow()
+            {
+                Toy = toy
+            }.ShowDialog();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            new AddToyWindow().ShowDialog();
         }
     }
 

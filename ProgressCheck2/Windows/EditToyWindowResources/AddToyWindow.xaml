@@ -1,0 +1,43 @@
+﻿<Window x:Class="ProgressCheck2.Windows.EditToyWindowResources.AddToyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProgressCheck2.Windows.EditToyWindowResources"
+        mc:Ignorable="d"
+        Title="AddToyWindow"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="200"
+        Name="AddToyWindowRoot">
+    <StackPanel Orientation="Vertical" Margin="20">
+        <StackPanel Orientation="Vertical">
+            <Label Content="Название"/>
+            <TextBox Text="{Binding ElementName=AddToyWindowRoot, Path=Toy.Name, Mode=TwoWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Вес"/>
+            <TextBox Text="{Binding ElementName=AddToyWindowRoot, Path=Toy.Weight, Mode=TwoWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Ширина"/>
+            <TextBox Text="{Binding ElementName=AddToyWindowRoot, Path=Toy.Width, Mode=TwoWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Высота"/>
+            <TextBox Text="{Binding ElementName=AddToyWindowRoot, Path=Toy.Height, Mode=TwoWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Цена"/>
+            <TextBox Text="{Binding ElementName=AddToyWindowRoot, Path=Toy.Cost, Mode=TwoWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Наличие" VerticalAlignment="Center"/>
+            <CheckBox IsChecked="{Binding ElementName=AddToyWindowRoot, Path=Toy.IsAvailable, Mode=TwoWay}"
+                      VerticalAlignment="Center"/>
+        </StackPanel>
+        <Button Content="Сохранить" Click="OnSave"
+                Padding="20 10"
+                FontSize="20" FontWeight="SemiBold"/>
+    </StackPanel>
+</Window>

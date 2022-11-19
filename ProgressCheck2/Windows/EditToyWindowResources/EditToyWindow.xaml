@@ -11,16 +11,43 @@
         Name="EditToyWindowRoot">
     <StackPanel Orientation="Vertical" Margin="20">
         <StackPanel Orientation="Vertical">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=EditToyWindowRoot, Path=Toy}" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Resources>
             <Label Content="ID"/>
-            <TextBox Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Id}"/>
+            <TextBox IsReadOnly="True" Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Id}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical">
             <Label Content="Название"/>
             <TextBox Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Name}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical">
-            <Label Content="Название"/>
-            <TextBox Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Name}"/>
+            <Label Content="Вес"/>
+            <TextBox Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Weight}"/>
         </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Ширина"/>
+            <TextBox Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Width}"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Высота"/>
+            <TextBox Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Height}"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Цена"/>
+            <TextBox Text="{Binding ElementName=EditToyWindowRoot, Path=Toy.Cost}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Наличие" VerticalAlignment="Center"/>
+            <CheckBox IsChecked="{Binding ElementName=EditToyWindowRoot, Path=Toy.IsAvailable}"
+                      VerticalAlignment="Center"/>
+        </StackPanel>
+        <Button Content="Сохранить" Click="OnSave"/>
     </StackPanel>
 </Window>

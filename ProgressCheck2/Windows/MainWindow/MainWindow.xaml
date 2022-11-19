@@ -8,12 +8,13 @@
         xmlns:toycard="clr-namespace:ProgressCheck2.Windows.MainWindow.ToysResources"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="450" Width="900"
         Name="MainWindowRoot">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid HorizontalAlignment="Stretch"
@@ -45,20 +46,21 @@
                  Grid.Row="1">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type database:Toy}">
-                    <toycard:ToyCard Toy="{Binding Path=.}"/>
+                    <toycard:ToyCard Toy="{Binding Path=.}"
+                                     OnEditClick="OnEdit"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
 
             <ListBox.ItemContainerStyle>
                 <Style TargetType="{x:Type ListBoxItem}">
-                    <Setter Property="Background" Value="CadetBlue"/>
+                    <Setter Property="Background" Value="WhiteSmoke"/>
 
                     <Style.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="LightBlue"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="Blue"/>
+                            <Setter Property="Background" Value="CadetBlue"/>
                         </Trigger>
                         <DataTrigger Binding="{Binding IsAvailable}" Value="False">
                             <Setter Property="Background" Value="Gray"/>

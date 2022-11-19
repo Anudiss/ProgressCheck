@@ -11,36 +11,41 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProgressCheck2.Windows.MainWindow.ToysResources
+namespace ProgressCheck2.Windows.EditToyWindowResources
 {
     /// <summary>
-    /// Логика взаимодействия для ToyCard.xaml
+    /// Логика взаимодействия для AddToyWindow.xaml
     /// </summary>
-    public partial class ToyCard : UserControl
+    public partial class AddToyWindow : Window
     {
-        #region Toy
+
+
         public Toy Toy
         {
             get { return (Toy)GetValue(ToyProperty); }
             set { SetValue(ToyProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Toy.  This enables animation, styling, binding, etc...
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ToyProperty =
-            DependencyProperty.Register("Toy", typeof(Toy), typeof(ToyCard));
-        #endregion
+            DependencyProperty.Register("ToyProperty", typeof(Toy), typeof(AddToyWindow));
 
-        public event Action<Toy> OnEditClick;
 
-        public ToyCard()
+
+        public AddToyWindow()
         {
             InitializeComponent();
+
+            Toy = new Toy();
         }
 
-        private void EditButton_Click(object sender, RoutedEventArgs e) =>
-            OnEditClick?.Invoke(Toy);
+        private void OnSave(object sender, RoutedEventArgs e)
+        {
+            DatabaseContext.Entities.Toy.Add(Toy);
+            DatabaseContext.Entities.SaveChanges();
+            Close();
+        }
     }
 }

@@ -98,6 +98,9 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="PartialClasses\Toy.cs" />
+    <Compile Include="Windows\EditToyWindowResources\AddToyWindow.xaml.cs">
+      <DependentUpon>AddToyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditToyWindowResources\EditToyWindow.xaml.cs">
       <DependentUpon>EditToyWindow.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Windows\EditToyWindowResources\AddToyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\EditToyWindowResources\EditToyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
